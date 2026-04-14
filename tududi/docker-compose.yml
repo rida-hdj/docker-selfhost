@@ -1,0 +1,14 @@
+services:
+  tududi:
+    image: chrisvel/tududi:latest
+    container_name: tududi
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      TUDUDI_USER_EMAIL: rida@email.com
+      TUDUDI_USER_PASSWORD: mypasswd
+      TUDUDI_SESSION_SECRET: "98634a60b7e904db697c7f6d836a27e3d1375c0eaac91448d2b6e587c03809a3aa7a041483c7d4ce289a4a3413ebcf17e816dcbafe1ab95f139f310b344395a2"
+    volumes:
+      - ~/tududi_db:/app/backend/db
+      - ~/tududi_uploads:/app/backend/uploads

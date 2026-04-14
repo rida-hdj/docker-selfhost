@@ -1,0 +1,22 @@
+services:
+  gitea:
+    image: gitea/gitea
+    container_name: gitea
+    restart: always
+
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+
+    volumes:
+      - /srv/gitea/data:/data
+      - /srv/gitea/custom/:/custom
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+    ports:
+      - "3000:3000"
+      - "2222:22"
+
+volumes:
+  gitea-data:
